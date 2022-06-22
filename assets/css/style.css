@@ -1,0 +1,264 @@
+:root {
+  --main-white: #F7F7FF;
+  --main-black: #131112;
+  --main-gray: #60656F;
+}
+
+* {
+  font-family: 'Lato', Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  width: 100vw;
+  background-color: var(--main-white);
+}
+
+
+header {
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+}
+
+header h2 a {
+  color: var(--main-black);
+  position: relative;
+}
+
+
+header nav.navbar {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav.navbar ul {
+  list-style: none;
+  display: flex;
+}
+
+header nav.navbar ul li {
+  margin-right: 30px;
+}
+
+header nav.navbar ul li a {
+  font-size: 1.15rem;
+  color: var(--main-black);
+  position: relative;
+}
+
+header nav.navbar ul li a::after, header nav.navbar h2 a::after {
+  content: " ";
+  width: 0;
+  height: 2px;
+  background-color: var(--main-gray);
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  transition: all .3s;
+}
+
+header nav.navbar ul li a:hover::after,
+header nav.navbar h2 a:hover::after  {
+  width: 40%;
+}
+
+header nav.navbar ul li a.active-link::after {
+  width: 40%;
+}
+
+main {
+  width: 100vw;
+  padding: 50px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main .container {
+  flex: 1;
+  max-width: 700px;
+  height: 400px;
+  padding: 20px 30px;
+  border-radius: 4px;
+  position: relative;
+}
+
+
+main .container::before, main .container::after {
+  content: " ";
+  position: absolute;
+  background-color: rgba(19, 17, 18, .5);
+  top: 0;
+  left: 0;
+  border-radius: 2px;  
+  transition: all .3s;
+}
+
+main .container::before {
+  height: 0;
+  width: 1.2px;
+  animation: border-left-initial 1s ease-in-out forwards;
+}
+
+main .container::after {
+  width: 0;
+  height: 1.2px;
+  animation: border-top-initial 1s ease-in-out forwards;
+}
+
+
+@keyframes border-top-initial {
+  to {
+    width: 40%;
+  }
+}
+
+@keyframes border-left-initial {
+  to {
+    height: 40%;
+  }
+}
+
+main .container .about-me, 
+main .container .projects {
+  display: block;
+  transition: all .3s;
+}
+
+
+main .container .about-me .container-title,
+main .container .projects .container-title {
+  background-color: var(--main-black);
+  color: var(--main-white);
+  padding: 10px;
+  font-size: 1rem;
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  z-index: 99;  
+  transition: all .5s;
+}
+
+main .container .about-me .container-title {
+  max-width: 100px;
+}
+
+main .container .projects .container-title {
+  max-width: 150px;
+}
+
+
+main .container .about-me .about-me-txt {
+  max-width: 70%;
+  margin-left: 65px;
+  font-size: 1rem;
+}
+
+main .container .about-me .about-me-txt ul {
+  padding-left: 1.2rem;
+}
+
+main .container .about-me .about-me-txt a {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  color: #131112;
+}
+
+main .container .about-me .about-me-txt a:hover {
+  text-decoration: underline;
+}
+
+
+main .container .about-me .about-me-txt img {
+  max-width: 20px;
+  opacity: .8;
+  margin-right: 5px;
+}
+
+
+main .container .about-me .about-me-txt p {
+  padding-top: 10px;
+  text-align: justify;
+}
+
+main .container .projects .projects-list {
+  position: absolute;
+  top: 0;
+  margin-top: 50px;
+  margin-left: 20px;
+}
+
+main .container .projects .projects-list ul {
+  list-style: none;
+  width: 100%;
+}
+
+main .container .projects .projects-list ul li  {
+  padding: 10px 15px;
+  background-color: #131112be;
+  color: var(--main-white);
+  cursor: pointer;
+  transition: all .2s;
+  height: auto;
+  width: 500px;
+  max-width: 500px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+main .container .projects .projects-list ul li h2 {
+  font-size: 1rem;
+}
+
+main .container .projects .projects-list ul li span {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+}
+
+main .container .projects .projects-list ul li:hover  {
+  background-color: #131112;
+}
+
+main .container .projects .projects-list ul li .project-description {
+  display: none;
+} 
+
+main .container .projects .projects-list ul li 
+.project-description.selected-project {
+  display: block;
+  padding: 10px;
+}
+
+main .container .projects .projects-list ul li 
+.project-description.selected-project p {
+  margin-top: 10px;
+
+}
+
+main .container .projects .projects-list ul li 
+.project-description.selected-project p a {
+  color: var(--main-white);
+  text-decoration: underline;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
