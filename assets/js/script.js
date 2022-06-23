@@ -9,7 +9,7 @@ const { createApp } = Vue
         projects: [
           {
             title: 'consuming-api-react',
-            description: 'This is a project developed with React by me to consume an API, also created by me, check more about in this link.',
+            description: 'This is a project developed with React by me to consume an API, also created by me.',
             githubLink: 'https://github.com/kauanunnes/consuming-api-react',
             usedTechnologies: ['React', 'Material UI', 'Context API']
           },
